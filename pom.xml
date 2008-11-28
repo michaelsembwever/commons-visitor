@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright (2007) Schibsted Søk AS
+ *   This file is part of SESAT.
+ *
+ *   SESAT is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU Affero General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   SESAT is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU Affero General Public License for more details.
+ *
+ *   You should have received a copy of the GNU Affero General Public License
+ *   along with SESAT.  If not, see <http://www.gnu.org/licenses/>.
+ -
+ - $Id: project.xml 2296 2006-02-14 17:33:59Z magnuse $
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+      <groupId>sesat</groupId>
+      <artifactId>commons-main</artifactId>
+      <version>1.9-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <name>Sesat Commons Visitor</name>
+    <groupId>sesat</groupId>
+    <artifactId>commons-visitor</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <description>
+ A helper implementation of the Visitor pattern using java's reflection.
+  This results in not having to add overloaded methods for each subclass of clause as this implementation will
+  automatically find those overloaded methods without explicitly having to call them in each Clause class.
+  This saves alot of work when adding new Clause subclasses.
+ 
+  The overloaded method name is specified by VISIT_METHOD_IMPL.
+ 
+  See http://www.javaworld.com/javaworld/javatips/jw-javatip98.html
+    </description>
+    <url>https://sesat.no/sesat-commons/commons-reference-map/</url>
+
+    <developers>
+        <developer>
+            <name>Michael Semb Wever</name>
+            <id>ssmiweve</id>
+            <email>mick@wever.org</email>
+            <organization>Schibsted Søk AS</organization>
+            <url>http://www.wever.org</url>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <!--dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency-->
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+            <type>jar</type>
+            <!-- We can't package this because JBoss dictates the world to you,
+              -  And they're lazy bastards that haven't upgraded to log4j-1.2.13 yet.
+              -->
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>sesat</groupId>
+            <artifactId>commons-reference-map</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>
