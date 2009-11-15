@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * Copyright (2007) Schibsted Søk AS
+ * Copyright (2007-2009) Schibsted Søk AS
  *   This file is part of Sesat Commons.
  *
  *   Sesat Commons is free software: you can redistribute it and/or modify
@@ -18,19 +18,26 @@
  -
  - $Id: project.xml 2296 2006-02-14 17:33:59Z magnuse $
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project 
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <parent>
       <groupId>sesat</groupId>
       <artifactId>commons-main</artifactId>
-      <version>1.9-SNAPSHOT</version>
+      <version>1.9</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <name>Sesat Commons Visitor</name>
-    <groupId>sesat</groupId>
+    <name>Commons Visitor</name>
     <artifactId>commons-visitor</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+
+<!-- - - - - - - - - - - -->
+<!-- PROJECT INFORMATION -->
+<!-- - - - - - - - - - - -->
 
     <description>
  A helper implementation of the Visitor pattern using java's reflection.
@@ -42,35 +49,64 @@
  
   See http://www.javaworld.com/javaworld/javatips/jw-javatip98.html
     </description>
-    <url>https://sesat.no/sesat-commons/commons-reference-map/</url>
+    <url>http://commons-visitor.sourceforge.net/</url>
+
+    <scm>
+        <connection>scm:svn:http://sesat.no/svn/sesat-commons/commons-visitor/trunk</connection>
+        <developerConnection>scm:svn:http://sesat.no/svn/sesat-commons/commons-visitor/trunk</developerConnection>
+        <url>http://sesat.no/svn/sesat-commons/commons-visitor/trunk</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>LGPLv3</name>
+            <url>LICENSE.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
 
     <developers>
         <developer>
             <name>Michael Semb Wever</name>
             <id>ssmiweve</id>
             <email>mick@wever.org</email>
-            <organization>Schibsted Søk AS</organization>
-            <url>http://www.wever.org</url>
+            <url>http://semb.wever.org</url>
             <timezone>+1</timezone>
         </developer>
     </developers>
 
+    <mailingLists>
+        <mailingList>
+            <name>User &amp; Development List</name>
+            <post>commons-visitor-user@lists.sourceforge.net</post>
+            <archive>http://sourceforge.net/mailarchive/forum.php?forum_name=commons-visitor-user</archive>
+        </mailingList>
+        <mailingList>
+            <name>Commit List</name>
+            <archive>http://sesat.no/pipermail/commons-commits/</archive>
+        </mailingList>
+    </mailingLists>
+
+<!-- - - - - - - - - - -->
+<!-- BUILD INFORMATION -->
+<!-- - - - - - - - - - -->
+
+    <repositories>
+        <repository>
+            <id>Sesat</id>
+            <name>Sesat Maven2 Repository</name>
+            <url>http://sesat.no/maven2</url>
+        </repository>
+    </repositories>
+
     <dependencies>
-        <!--dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency-->
 
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.14</version>
             <type>jar</type>
-            <!-- We can't package this because JBoss dictates the world to you,
-              -  And they're lazy bastards that haven't upgraded to log4j-1.2.13 yet.
-              -->
+            <!--Presume the "application" packages the version they want -->
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -79,4 +115,16 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+<!-- - - - - - - - - - - -->
+<!-- OTHER   INFORMATION -->
+<!-- - - - - - - - - - - -->
+
+    <distributionManagement>
+        <site>
+          <id>commons-visitor.sf.net</id>
+          <url>scp://216.34.181.119/home/groups/c/co/commons-visitor/htdocs</url>
+        </site>
+    </distributionManagement>
+
 </project>
